@@ -76,7 +76,7 @@ extension DownloadCenterViewController: UITableViewDelegate,UITableViewDataSourc
             if cmDownload.downloadState == DownloadState.Finished {
                 cell.downloadProgress.hidden = true
                 cell.downloadButton.setTitle("Done", forState: .Normal)
-                cell.downloadButton.imageView?.image = nil
+                cell.downloadButton.setImage(nil, forState: .Normal)
                 cell.downloadPercent.text = "100%"
             }
             

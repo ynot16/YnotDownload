@@ -20,13 +20,13 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         downloadClick = 0
-        let url1 = "http://58.67.144.49:7001/ZXMobileELearning//WebFiles/cwFiles/%7B3D2A707A-FA3C-4685-BE60-489AFA7ECA85%7D.mp4"
-        let url2 = "http://58.67.144.49:7001/ZXMobileELearning//WebFiles/cwFiles/%7B4EC575D9-31BC-4ABC-8034-5EF7665607E8%7D.mp4"
-        let url3 = "http://58.67.144.49:7001/ZXMobileELearning//WebFiles/cwFiles/%7B4EC575D9-31BC-4ABC-8034-5EF7665607E8%7D.mp4"
-        let url4 = "http://58.67.144.49:7001/ZXMobileELearning//WebFiles/cwFiles/%7B4EC575D9-31BC-4ABC-8034-5EF7665607E8%7D.mp4"
-        let url5 = "http://58.67.144.49:7001/ZXMobileELearning//WebFiles/cwFiles/%7B4EC575D9-31BC-4ABC-8034-5EF7665607E8%7D.mp4"
-        let url6 = "http://58.67.144.49:7001/ZXMobileELearning//WebFiles/cwFiles/%7B4EC575D9-31BC-4ABC-8034-5EF7665607E8%7D.mp4"
-        let url7 = "http://58.67.144.49:7001/ZXMobileELearning//WebFiles/cwFiles/%7B4EC575D9-31BC-4ABC-8034-5EF7665607E8%7D.mp4"
+        let url1 = "http://mw5.dwstatic.com/2/4/1529/134981-99-1436844583.mp4"
+        let url2 = "http://mw5.dwstatic.com/2/4/1529/134981-99-1436844583.mp4"
+        let url3 = "http://mw5.dwstatic.com/2/4/1529/134981-99-1436844583.mp4"
+        let url4 = "http://mw5.dwstatic.com/2/4/1529/134981-99-1436844583.mp4"
+        let url5 = "http://mw5.dwstatic.com/2/4/1529/134981-99-1436844583.mp4"
+        let url6 = "http://mw5.dwstatic.com/2/4/1529/134981-99-1436844583.mp4"
+        let url7 = "http://mw5.dwstatic.com/2/4/1529/134981-99-1436844583.mp4"
         urlArray = [url1,url2,url3,url4,url5,url6,url7]
         
         tableView.dataSource = self

@@ -20,6 +20,7 @@ class DownloadTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = UIColor.whiteColor()
+        self.selectionStyle = .None
         
         // Initialization code
     }
