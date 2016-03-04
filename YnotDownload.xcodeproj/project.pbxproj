@@ -8,20 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		7C19DA5C1C895AA7007CDF7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C19DA5B1C895AA7007CDF7D /* AppDelegate.swift */; };
-		7C19DA5E1C895AA7007CDF7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C19DA5D1C895AA7007CDF7D /* ViewController.swift */; };
-		7C19DA611C895AA7007CDF7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C19DA5F1C895AA7007CDF7D /* Main.storyboard */; };
 		7C19DA631C895AA7007CDF7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C19DA621C895AA7007CDF7D /* Assets.xcassets */; };
 		7C19DA661C895AA7007CDF7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C19DA641C895AA7007CDF7D /* LaunchScreen.storyboard */; };
+		7C19DA6E1C895C18007CDF7D /* URLSession.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C19DA6D1C895C18007CDF7D /* URLSession.storyboard */; };
+		7C19DA701C895C32007CDF7D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C19DA6F1C895C32007CDF7D /* MainViewController.swift */; };
+		7C19DA751C895CC1007CDF7D /* YnotDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C19DA711C895CC1007CDF7D /* YnotDownloadManager.swift */; };
+		7C19DA761C895CC1007CDF7D /* CMDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C19DA721C895CC1007CDF7D /* CMDownload.swift */; };
+		7C19DA771C895CC1007CDF7D /* DownloadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C19DA731C895CC1007CDF7D /* DownloadTableViewCell.swift */; };
+		7C19DA781C895CC1007CDF7D /* DownloadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C19DA741C895CC1007CDF7D /* DownloadTableViewCell.xib */; };
+		7C19DA7A1C895CCF007CDF7D /* DownloadCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C19DA791C895CCF007CDF7D /* DownloadCenterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7C19DA581C895AA7007CDF7D /* YnotDownload.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YnotDownload.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C19DA5B1C895AA7007CDF7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7C19DA5D1C895AA7007CDF7D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7C19DA601C895AA7007CDF7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7C19DA621C895AA7007CDF7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C19DA651C895AA7007CDF7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C19DA671C895AA7007CDF7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C19DA6D1C895C18007CDF7D /* URLSession.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = URLSession.storyboard; sourceTree = "<group>"; };
+		7C19DA6F1C895C32007CDF7D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		7C19DA711C895CC1007CDF7D /* YnotDownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YnotDownloadManager.swift; sourceTree = "<group>"; };
+		7C19DA721C895CC1007CDF7D /* CMDownload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CMDownload.swift; sourceTree = "<group>"; };
+		7C19DA731C895CC1007CDF7D /* DownloadTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadTableViewCell.swift; sourceTree = "<group>"; };
+		7C19DA741C895CC1007CDF7D /* DownloadTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DownloadTableViewCell.xib; sourceTree = "<group>"; };
+		7C19DA791C895CCF007CDF7D /* DownloadCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadCenterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +65,13 @@
 			isa = PBXGroup;
 			children = (
 				7C19DA5B1C895AA7007CDF7D /* AppDelegate.swift */,
-				7C19DA5D1C895AA7007CDF7D /* ViewController.swift */,
-				7C19DA5F1C895AA7007CDF7D /* Main.storyboard */,
+				7C19DA6F1C895C32007CDF7D /* MainViewController.swift */,
+				7C19DA791C895CCF007CDF7D /* DownloadCenterViewController.swift */,
+				7C19DA711C895CC1007CDF7D /* YnotDownloadManager.swift */,
+				7C19DA721C895CC1007CDF7D /* CMDownload.swift */,
+				7C19DA731C895CC1007CDF7D /* DownloadTableViewCell.swift */,
+				7C19DA741C895CC1007CDF7D /* DownloadTableViewCell.xib */,
+				7C19DA6D1C895C18007CDF7D /* URLSession.storyboard */,
 				7C19DA621C895AA7007CDF7D /* Assets.xcassets */,
 				7C19DA641C895AA7007CDF7D /* LaunchScreen.storyboard */,
 				7C19DA671C895AA7007CDF7D /* Info.plist */,
@@ -123,8 +138,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C19DA661C895AA7007CDF7D /* LaunchScreen.storyboard in Resources */,
+				7C19DA781C895CC1007CDF7D /* DownloadTableViewCell.xib in Resources */,
 				7C19DA631C895AA7007CDF7D /* Assets.xcassets in Resources */,
-				7C19DA611C895AA7007CDF7D /* Main.storyboard in Resources */,
+				7C19DA6E1C895C18007CDF7D /* URLSession.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,22 +151,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C19DA5E1C895AA7007CDF7D /* ViewController.swift in Sources */,
 				7C19DA5C1C895AA7007CDF7D /* AppDelegate.swift in Sources */,
+				7C19DA771C895CC1007CDF7D /* DownloadTableViewCell.swift in Sources */,
+				7C19DA701C895C32007CDF7D /* MainViewController.swift in Sources */,
+				7C19DA751C895CC1007CDF7D /* YnotDownloadManager.swift in Sources */,
+				7C19DA761C895CC1007CDF7D /* CMDownload.swift in Sources */,
+				7C19DA7A1C895CCF007CDF7D /* DownloadCenterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		7C19DA5F1C895AA7007CDF7D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7C19DA601C895AA7007CDF7D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7C19DA641C895AA7007CDF7D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
