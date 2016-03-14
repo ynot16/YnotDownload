@@ -95,14 +95,14 @@ extension YnotDownloadManager {
     
     
     //开始下载
-    func downloadSessionWithUrl(url: String, name: String) {
+    private func downloadSessionWithUrl(url: String, name: String) {
         let cmDownload = CMDownload(name: name, url: url)
         downloadArray.append(cmDownload)
         cmDownload.downloadTaskWithUrl(url)
     }
     
     //暂停下载
-    func cancel(name: String) {
+    private func cancel(name: String) {
         for cmDownload in downloadArray {
             if cmDownload.identifier == name {
                 cmDownload.cancelWithIdentifer(name)
@@ -111,7 +111,7 @@ extension YnotDownloadManager {
     }
     
     //恢复下载
-    func resume(name: String) {
+    private func resume(name: String) {
         for cmDownload in downloadArray {
             if cmDownload.identifier == name {
                 cmDownload.resumeWithIdentifier(name)
