@@ -29,7 +29,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //download url
         downloadClick = 0
         let url1 = "http://mw5.dwstatic.com/2/4/1529/134981-99-1436844583.mp4"
         let url2 = "http://mw5.dwstatic.com/2/4/1529/134981-99-1436844583.mp4"
