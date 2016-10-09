@@ -18,7 +18,7 @@ class YnotDownloadManager: NSObject {
     
     static let sharedInstance = YnotDownloadManager()
     
-    private override init() {
+    fileprivate override init() {
         
     }
     
@@ -29,7 +29,7 @@ class YnotDownloadManager: NSObject {
     /*
     判断是否已经已存在该下载对象
     */
-    func isExistedDownload(course: Course) -> Bool {
+    func isExistedDownload(_ course: Course) -> Bool {
         
         guard self.downloadArray.count > 0 else {
             return false
@@ -47,7 +47,7 @@ class YnotDownloadManager: NSObject {
     /*
     根据名称返回对应的CMDownload对象
     */
-    func getTheSpecficCMDownload(name: String) -> CMDownload {
+    func getTheSpecficCMDownload(_ name: String) -> CMDownload {
         
         guard downloadArray.count > 0 else {
             return CMDownload()
@@ -68,7 +68,7 @@ extension YnotDownloadManager {
     /*
     开放统一一个接口，供用户调用。
     */
-    func downloadWithCMDownload(course: Course) {
+    func downloadWithCMDownload(_ course: Course) {
         
         let isExistedDownload = self.isExistedDownload(course)
         
@@ -78,8 +78,8 @@ extension YnotDownloadManager {
                 if cmDownload.identifier == course.name {
                     if let downloadSate = cmDownload.downloadState {
                         switch downloadSate {
-                        case .Downloading : self.cancel(cmDownload.identifier!)
-                        case .Suspend : self.resume(cmDownload.identifier!)
+                        case .downloading : self.cancel(cmDownload.identifier!)
+                        case .suspend : self.resume(cmDownload.identifier!)
                         default: print("Nothing happenes")
                         }
                     }
@@ -95,14 +95,14 @@ extension YnotDownloadManager {
     
     
     //开始下载
-    private func downloadSessionWithUrl(url: String, name: String) {
+    fileprivate func downloadSessionWithUrl(_ url: String, name: String) {
         let cmDownload = CMDownload(name: name, url: url)
         downloadArray.append(cmDownload)
         cmDownload.downloadTaskWithUrl(url)
     }
     
     //暂停下载
-    private func cancel(name: String) {
+    fileprivate func cancel(_ name: String) {
         for cmDownload in downloadArray {
             if cmDownload.identifier == name {
                 cmDownload.cancelWithIdentifer(name)
@@ -111,7 +111,7 @@ extension YnotDownloadManager {
     }
     
     //恢复下载
-    private func resume(name: String) {
+    fileprivate func resume(_ name: String) {
         for cmDownload in downloadArray {
             if cmDownload.identifier == name {
                 cmDownload.resumeWithIdentifier(name)

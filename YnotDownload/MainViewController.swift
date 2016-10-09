@@ -7,6 +7,17 @@
 //
 
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 
 class MainViewController: UIViewController {
 
@@ -33,36 +44,19 @@ class MainViewController: UIViewController {
         tableView.delegate = self
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 
 extension MainViewController: UITableViewDataSource,UITableViewDelegate {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCellWithIdentifier("Study Cell") {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "Study Cell") {
             let downloadButton: UIButton = cell.viewWithTag(101) as! UIButton
-            downloadButton.addTarget(self, action: "downloadAction:", forControlEvents: .TouchUpInside)
+            downloadButton.addTarget(self, action: #selector(MainViewController.downloadAction(_:)), for: .touchUpInside)
             return cell
         }else {
             return UITableViewCell()
@@ -70,11 +64,11 @@ extension MainViewController: UITableViewDataSource,UITableViewDelegate {
     }
     
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
     
-    func downloadAction(sender: UIButton) {
+    func downloadAction(_ sender: UIButton) {
         guard downloadClick < 7 else {
             print("download click is more than 7")
             return
@@ -88,7 +82,7 @@ extension MainViewController: UITableViewDataSource,UITableViewDelegate {
         let course = Course(url: urlArray![downloadClick!], name: titleArray[downloadClick!])
         YnotDownloadManager.sharedInstance.downloadWithCMDownload(course)
         
-        downloadClick!++
+        downloadClick! += 1
     }
     
 }

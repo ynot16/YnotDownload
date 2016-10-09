@@ -16,50 +16,33 @@ class DownloadCenterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.whiteColor()
-        tableView = UITableView(frame: CGRectMake(0, 0, Window.SCREENWIDTH, Window.SCREENHIEGHT), style: .Plain)
+        view.backgroundColor = UIColor.white
+        tableView = UITableView(frame: CGRect(x: 0, y: 0, width: Window.SCREENWIDTH, height: Window.SCREENHIEGHT), style: .plain)
         tableView!.dataSource = self;
         tableView!.delegate = self;
-        tableView?.registerNib(UINib(nibName: "DownloadTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "Cell Identifier")
+        tableView?.register(UINib(nibName: "DownloadTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "Cell Identifier")
         view.addSubview(tableView!)
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 // MARK: TableView 代理和数据源
 
 extension DownloadCenterViewController: UITableViewDelegate,UITableViewDataSource  {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return YnotDownloadManager.sharedInstance.downloadArray.count
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellID = "Cell Identifier"
-        if let cell = tableView.dequeueReusableCellWithIdentifier(cellID) as? DownloadTableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: cellID) as? DownloadTableViewCell {
             
-            let downloadModel = YnotDownloadManager.sharedInstance.downloadArray[indexPath.row]
+            let downloadModel = YnotDownloadManager.sharedInstance.downloadArray[(indexPath as NSIndexPath).row]
             
             let course = Course(url: downloadModel.url!,name: downloadModel.identifier!)
             
@@ -73,10 +56,10 @@ extension DownloadCenterViewController: UITableViewDelegate,UITableViewDataSourc
             cmDownload.delegate = self
             
             //下载完成更新UI
-            if cmDownload.downloadState == DownloadState.Finished {
-                cell.downloadProgress.hidden = true
-                cell.downloadButton.setTitle("Done", forState: .Normal)
-                cell.downloadButton.setImage(nil, forState: .Normal)
+            if cmDownload.downloadState == DownloadState.finished {
+                cell.downloadProgress.isHidden = true
+                cell.downloadButton.setTitle("Done", for: UIControlState())
+                cell.downloadButton.setImage(nil, for: UIControlState())
                 cell.downloadPercent.text = "100%"
             }
             
@@ -92,7 +75,7 @@ extension DownloadCenterViewController: UITableViewDelegate,UITableViewDataSourc
         }
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
     
@@ -102,21 +85,21 @@ extension DownloadCenterViewController: UITableViewDelegate,UITableViewDataSourc
 
 extension DownloadCenterViewController: DownloadDelegate {
     
-    func urlSessionDownloadComplete(cmDownload: CMDownload, error: NSError?) {
+    func urlSessionDownloadComplete(_ cmDownload: CMDownload, error: NSError?) {
         //回到主线程更新UI
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+        DispatchQueue.main.async { () -> Void in
             self.tableView?.reloadData()
         }
         
         print("name = \(cmDownload.identifier),error = \(error?.localizedDescription)")
     }
     
-    func urlSessionDownloadFinishDownloading(cmDownload: CMDownload) {
+    func urlSessionDownloadFinishDownloading(_ cmDownload: CMDownload) {
         print("finsih downloading \(cmDownload.identifier)")
     }
 }
 
 struct Window {
-    static let SCREENWIDTH = UIScreen.mainScreen().bounds.width
-    static let SCREENHIEGHT = UIScreen.mainScreen().bounds.height
+    static let SCREENWIDTH = UIScreen.main.bounds.width
+    static let SCREENHIEGHT = UIScreen.main.bounds.height
 }
